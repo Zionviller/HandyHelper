@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <title>Handy Helper - Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col s8">
+          <h4 class="blue-text">{{job.title}}</h4>
+          <p>Posted by: {{job.creator.first_name}} {{job.creator.last_name}}</p>
+          <p>Posted on: {{job.created_on}}</p>
+          <p>Description: {{job.description}}</p>
+          <p>Location: {{job.location}}</p>
+          <a href="/dashboard/help/{{job.id}}">Help out {{job.creator.first_name}} with this task</a> | <a href="/dashboard">Back</a>
+        </div>
+      </div>
+      <div class="col s6">
+        {% if messages %}
+          {% for message in messages %}
+            <p class='red-text'>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  </body>
+</html>

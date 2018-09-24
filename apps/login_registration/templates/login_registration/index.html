@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <title>Login and Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="" style="position: absolute">
+        <h2 class="orange-text">Handy Helper</h2>
+        {% if messages %}
+        {% for message in messages %}
+          <p class="red-text">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="row">
+        <form class="col s6 push-s3" action="/register" method="post">
+          {% csrf_token %}
+          <h4 class="blue-text">Registration</h4>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="first_name" class="validate" type="text" name="first_name" value="" placeholder="Your First Name">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="last_name" class="validate" type="text" name="last_name" value="" placeholder="Your Last Name">
+              <label for="last_name">Last Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="email" class="validate" type="text" name="email" value="" placeholder="Your Email">
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" class="validate" type="password" name="password" value="" placeholder="Enter Password">
+              <label for="password">Password</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="pw_confirm" class="validate" type="password" name="pw_confirm" value="" placeholder="Confirm Password">
+              <label for="pw_confirm">Confirm Password</label>
+            </div>
+            <div class="col s12">
+              <button class='btn' type="submit" name="submit">Register New User</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <form class="col s6 push-s3" action="/login" method="post">
+          {% csrf_token %}
+          <h4 class="blue-text">Login</h4>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" class="validate" type="text" name="email" placeholder="Enter Email">
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" class="validate" type="password" name="password" placeholder="Enter Password">
+              <label for="password">Password</label>
+            </div>
+            <div class="col s12">
+              <button class='btn' type="submit" name="submit">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  </body>
+</html>

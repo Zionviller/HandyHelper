@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <title>Success!</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class='green-text'>Success! Welcome, {{full_name}}!</h1>
+        <a class="btn red yellow-text" href="/logout">Log Out</a>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  </body>
+</html>
